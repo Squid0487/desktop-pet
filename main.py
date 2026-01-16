@@ -2,7 +2,6 @@ import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1' #hide pygame support prompt
 import pygame
 import files
-import tkinter as tk
 from ctypes import windll, wintypes
 import win32api
 import win32con
@@ -37,7 +36,7 @@ class MONITORINFO(ctypes.Structure):
     ]
 
 def getTaskbarHeight():
-    monitor = windll.user32.MonitorFromWindow(hwnd, 0x1)  # MONITOR_DEFAULTTOPRIMARY
+    monitor = windll.user32.MonitorFromWindow(hwnd, 0x1)  
     
     mi = MONITORINFO()
     mi.cbSize = ctypes.sizeof(MONITORINFO)
@@ -50,14 +49,30 @@ def getTaskbarHeight():
     
     return full_height - work_height
     
+def getScreenHeight():
+    monitor = windll.user32.MonitorFromWindow(hwnd, 0x1)  
+    
+    mi = MONITORINFO()
+    mi.cbSize = ctypes.sizeof(MONITORINFO)
+    
+    windll.user32.GetMonitorInfoW(monitor, ctypes.byref(mi))
+    
+    full_height = mi.rcMonitor.bottom - mi.rcMonitor.top
+   
+    return full_height 
+
 
 def draw(character):
     SCREEN.blit(character, (0, 0))
 
 
 def main(character_path):
+
     taskbar_height = getTaskbarHeight()
+    screen_height = getScreenHeight()
+
     fuchsia = (255, 0, 128)  # Transparency color
+    
     # Set window transparency color
     win32gui.SetLayeredWindowAttributes(hwnd, win32api.RGB(*fuchsia), 0, win32con.LWA_COLORKEY)
 
@@ -165,17 +180,10 @@ if __name__ == "__main__":
         os.chdir(new_dir)
         print(f"Moved from OneDrive to: {new_dir}")
 
-    root = tk.Tk()
-    #hide the small Tkinter window that is created
-    root.withdraw() 
-
 
     pygame.init()
     clock = pygame.time.Clock()
     
-
-    screen_height = root.winfo_screenheight()
-
     character_path = files.findCharacter()
 
     screen_x = 150
