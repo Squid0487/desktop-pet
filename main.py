@@ -97,8 +97,6 @@ def main(character_path):
 
     while True:
 
-        is_dragging = False
-
         for event in pygame.event.get():
 
             #check status of the window
@@ -106,10 +104,10 @@ def main(character_path):
                 pygame.quit()
                 return
             
-            #check for window movement
-            if event.type == pygame.VIDEORESIZE:
-                if not is_dragging:
-                    is_dragging = True
+            #ESC to quit
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                pygame.quit()
+                return 
                               
             #START drag on left button down 
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
@@ -161,7 +159,7 @@ def main(character_path):
             window_pos[1] += 1
             on_ground = False
         
-        if not on_ground and not is_dragging:
+        if not on_ground and not dragging:
             moveWindow(*window_pos)
 
 
@@ -215,3 +213,4 @@ if __name__ == "__main__":
 
     main(character_path)
     
+
