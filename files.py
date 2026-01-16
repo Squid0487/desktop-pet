@@ -11,16 +11,8 @@ def countFiles(folder_path):
             if entry.is_file():
                 file_count += 1
     return file_count
-"""
-def findPath(item_name, start_dir="."):
-    
-    for root, dirs, files in os.walk(start_dir):
-        if item_name in files:
-            return os.path.join(root, item_name)  # It's a file
-        if item_name in dirs:
-            return os.path.join(root, item_name)  # It's a folder
-    return None
-"""
+
+
 def findFile(filename, start_dir="."):
 
     
@@ -201,5 +193,6 @@ def findCharacter():
         path = createFolder(new_name)
         return path
         
+
 
 
