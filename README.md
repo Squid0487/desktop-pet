@@ -1,5 +1,12 @@
 # desktop-pet
 A desktop pet program, which you can upload pictures to make your own desktop pet. 
+
+Introduction: 
+There are 2 modes of the pet, one is when it is being dragged, and one is not.
+When you let go of it in mid-air, it will drop to the bottom itself. 
+Use the default pet to try out first!
+
+Download: 
 Put all the downloaded files and folders into the same folder. 
 The program works best when it's inside the c drive. 
 Libaries used: pygame, pywin32, PIL
