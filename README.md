@@ -1,9 +1,10 @@
 # desktop-pet
-A desktop pet program, which you can upload pictures to make your own desktop pet. 
+A desktop pet program for windows, which you can upload pictures to make your own desktop pet. 
 
 Introduction: 
 There are 2 modes of the pet, one is when it is being dragged, and one is not.
 When you let go of it in mid-air, it will drop to the bottom itself. 
+Use curser to drag the pet around and Esc for quitting the program. 
 Use the default pet to try out first!
 
 Download: 
