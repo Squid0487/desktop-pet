@@ -12,3 +12,4 @@ Run the main.py in the terminal to start the program.
 Uploaded files can only be in JPEG PNG and GIF. 
 Type file.file_type in the terminal to upload the file e.g. oiiai_stand.png 
 Uploaded image should have empty spaces as fewer as possible. 
+Behaves just like a window, although it's always on top, you have to click it twice to drag it when you are moving from another window. 
